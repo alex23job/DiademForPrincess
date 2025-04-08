@@ -8,6 +8,7 @@ public class BallMovement : MonoBehaviour
 
     Rigidbody _rb;
     bool isMove = false;
+    bool isStop = false;
     Vector3 beginPos;
     Vector3 delta;
 
@@ -90,8 +91,25 @@ public class BallMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (isStop) return;
         if (collision.gameObject.CompareTag("ball"))
         {
+            isStop = true;
+            //collision.gameObject.tag = "untagged";
+            if (levelControl != null)
+            {
+                levelControl.BallMoveEnd(transform.position);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isStop) return;
+        if (other.CompareTag("ball"))
+        {
+            isStop = true;
+            //other.tag = "untagged";
             if (levelControl != null)
             {
                 levelControl.BallMoveEnd(transform.position);
