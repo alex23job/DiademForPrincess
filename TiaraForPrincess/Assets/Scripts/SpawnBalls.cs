@@ -23,13 +23,14 @@ public class SpawnBalls : MonoBehaviour
         
     }
 
-    public void SpawnNewBall(int numColor)
+    public GameObject SpawnNewBall(int numColor)
     {
-        if (numColor < 0 || numColor > arrMat.Length - 1) return;
+        if (numColor < 0 || numColor > arrMat.Length - 1) return null;
         GameObject ball = Instantiate(prefabBall, transform.position, Quaternion.identity);
         ball.GetComponent<BallMovement>().SetLevelControl(levelControl);
         MeshRenderer mr = ball.GetComponent<MeshRenderer>();
         mr.materials = new Material[] { arrMat[numColor] };
+        return ball;
     }
 
     public void SetLevelControl(LevelControl lc)

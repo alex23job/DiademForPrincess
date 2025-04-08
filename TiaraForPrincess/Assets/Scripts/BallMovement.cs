@@ -96,7 +96,7 @@ public class BallMovement : MonoBehaviour
         {
             isStop = true;
             //collision.gameObject.tag = "untagged";
-            if (levelControl != null)
+            if (levelControl != null && transform.position.y < 13.7f)
             {
                 levelControl.BallMoveEnd(transform.position);
             }
@@ -110,7 +110,7 @@ public class BallMovement : MonoBehaviour
         {
             isStop = true;
             //other.tag = "untagged";
-            if (levelControl != null)
+            if (levelControl != null && transform.position.y < 13.7f)
             {
                 levelControl.BallMoveEnd(transform.position);
             }
