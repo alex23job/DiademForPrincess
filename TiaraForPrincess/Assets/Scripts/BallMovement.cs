@@ -5,10 +5,12 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     LevelControl levelControl = null;
+    GameObject destroyBall = null;
 
     Rigidbody _rb;
     bool isMove = false;
     bool isStop = false;
+    bool isDestroy = false;
     Vector3 beginPos;
     Vector3 delta;
 
@@ -38,11 +40,29 @@ public class BallMovement : MonoBehaviour
             transform.position = figPos;
             delta = mp;
         }
+        if (isDestroy)
+        {
+            Vector3 scale = transform.localScale;
+            scale /= 1.05f;
+            transform.localScale = scale;
+            if (scale.x < 0.02)
+            {
+                Destroy(gameObject);
+                GameObject ps = Instantiate(destroyBall, transform.position, Quaternion.identity);
+                Destroy(ps, 1f);
+            }
+        }
     }
 
     public void SetLevelControl(LevelControl lc)
     {
         levelControl = lc;
+    }
+
+    public void SetDestroy(GameObject db)
+    {
+        isDestroy = true;
+        destroyBall = db;
     }
 
     private void OnMouseDown()
@@ -56,7 +76,6 @@ public class BallMovement : MonoBehaviour
             delta = mp;
         }
     }
-
     private void OnMouseUp()
     {
         if (!isMove) return;

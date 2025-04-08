@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelControl : MonoBehaviour
 {
     [SerializeField] private SpawnBalls spawnBalls;
+    [SerializeField] private GameObject destroyBall;
 
     int currentBallColor = -1;
     int[] arrDel = null;
@@ -53,6 +54,7 @@ public class LevelControl : MonoBehaviour
         bool res = false;
         for (int i = 1; i < 6; i++)
         {
+            if (arrColors[6 * col + i] == -1) continue;
             if (arrColors[6 * col + i] == arrColors[6 * col + i - 1])
             {
                 if (i < 5 && arrColors[6 * col + i] == arrColors[6 * col + i + 1])
@@ -71,7 +73,8 @@ public class LevelControl : MonoBehaviour
     {
         for(int i = 0; i < 3; i++)
         {
-            Destroy(arrBalls[arrDel[i]]);
+            //Destroy(arrBalls[arrDel[i]]); 
+            arrBalls[arrDel[i]].GetComponent<BallMovement>().SetDestroy(destroyBall);
             arrBalls[arrDel[i]] = null;
             arrColors[arrDel[i]] = -1;
         }

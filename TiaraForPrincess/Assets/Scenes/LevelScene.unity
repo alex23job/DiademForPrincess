@@ -334,7 +334,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 11.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -359,7 +359,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1409423, y: -0, z: -0, w: 0.99001783}
-  m_LocalPosition: {x: 3.8, y: 22.98, z: -41.93}
+  m_LocalPosition: {x: 2, y: 22.98, z: -41.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -464,7 +464,7 @@ Transform:
   m_GameObject: {fileID: 1060754096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -505,6 +505,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 53b98c10e28fac440a7b3e17d8a50e57, type: 2}
   - {fileID: 2100000, guid: d076882ba50c3a242b7395feacd42a27, type: 2}
   - {fileID: 2100000, guid: 11a479e0fc61e5646b15174fe024f42e, type: 2}
+  - {fileID: 2100000, guid: bd82cafc82848544abd5b95a34ff52c3, type: 2}
+  - {fileID: 2100000, guid: 9b279e6b6be906a49a8a222a35f6fe20, type: 2}
 --- !u!4 &1360504043
 Transform:
   m_ObjectHideFlags: 0
@@ -664,6 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnBalls: {fileID: 1360504042}
+  destroyBall: {fileID: 177364615967115090, guid: 9093c45506713a14aaeced842130a281, type: 3}
 --- !u!4 &2051808275
 Transform:
   m_ObjectHideFlags: 0
