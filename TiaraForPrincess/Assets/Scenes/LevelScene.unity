@@ -766,6 +766,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 801637294}
+  - component: {fileID: 801637295}
   m_Layer: 0
   m_Name: WaySet
   m_TagString: Untagged
@@ -782,7 +783,7 @@ Transform:
   m_GameObject: {fileID: 801637293}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 7, y: 5, z: 0}
+  m_LocalPosition: {x: 7, y: 5, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -795,6 +796,27 @@ Transform:
   - {fileID: 2106607957}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
+--- !u!114 &801637295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801637293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf30c335868d296439c6cbfaf871bde9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectPrefab: {fileID: 1243588262515730976, guid: 32207e7ac492d9a48a89e458832a11e6, type: 3}
+  platformPrefab: {fileID: 4123329937012788823, guid: d393ad306c233e548a1d3addf6cfc544, type: 3}
+  arrMaterials:
+  - {fileID: 2100000, guid: 11a479e0fc61e5646b15174fe024f42e, type: 2}
+  - {fileID: 2100000, guid: 53b98c10e28fac440a7b3e17d8a50e57, type: 2}
+  - {fileID: 2100000, guid: d076882ba50c3a242b7395feacd42a27, type: 2}
+  - {fileID: 2100000, guid: 59127e6596c23ec4c94c062c1dc654d1, type: 2}
+  - {fileID: 2100000, guid: bd82cafc82848544abd5b95a34ff52c3, type: 2}
+  - {fileID: 2100000, guid: 9b279e6b6be906a49a8a222a35f6fe20, type: 2}
 --- !u!1 &840187435
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,6 +2911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuadroRect
       objectReference: {fileID: 0}
+    - target: {fileID: 1243588262515730976, guid: 32207e7ac492d9a48a89e458832a11e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1970853910041284950, guid: 32207e7ac492d9a48a89e458832a11e6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3056,6 +3082,10 @@ PrefabInstance:
     - target: {fileID: 4123329937012788823, guid: d393ad306c233e548a1d3addf6cfc544, type: 3}
       propertyPath: m_Name
       value: QuadroPlatform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123329937012788823, guid: d393ad306c233e548a1d3addf6cfc544, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7424022491736968993, guid: d393ad306c233e548a1d3addf6cfc544, type: 3}
       propertyPath: m_Materials.Array.data[0]
