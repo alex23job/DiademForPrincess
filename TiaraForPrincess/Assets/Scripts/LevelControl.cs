@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelControl : MonoBehaviour
 {
+    [SerializeField] private UI_Control ui_Control;
     [SerializeField] private SpawnBalls spawnBalls;
     [SerializeField] private GameObject destroyBall;
 
@@ -12,6 +13,7 @@ public class LevelControl : MonoBehaviour
     int[] arrColors = null;
     GameObject[] arrBalls = null;
     GameObject curBall = null;
+    int[] arrColorPlatforms = null;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class LevelControl : MonoBehaviour
         for (int i = 0; i < 24; i++) arrColors[i] = -1;
         arrDel = new int[3];
         arrBalls = new GameObject[24];
+        arrColorPlatforms = new int[spawnBalls.CountMaterials];
         spawnBalls.SetLevelControl(gameObject.GetComponent<LevelControl>());
         GenerateNewBall();
     }
@@ -71,6 +74,8 @@ public class LevelControl : MonoBehaviour
 
     private void Del3Balls()
     {
+        arrColorPlatforms[arrColors[arrDel[0]]]++;
+        ui_Control.ViewBtnState(arrColorPlatforms);
         for(int i = 0; i < 3; i++)
         {
             //Destroy(arrBalls[arrDel[i]]); 

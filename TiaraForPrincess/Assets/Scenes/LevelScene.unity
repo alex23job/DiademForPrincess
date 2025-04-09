@@ -1534,6 +1534,7 @@ GameObject:
   - component: {fileID: 1081653226}
   - component: {fileID: 1081653225}
   - component: {fileID: 1081653224}
+  - component: {fileID: 1081653228}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1624,6 +1625,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1081653228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081653223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7adb85c66f236184589ae3c62efe2e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrColorBtn:
+  - {fileID: 689773784}
+  - {fileID: 1630732855}
+  - {fileID: 840187437}
+  - {fileID: 1516951394}
+  - {fileID: 2113475521}
+  - {fileID: 290180075}
 --- !u!1 &1231318079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,10 +1750,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabBall: {fileID: 4675344453464936037, guid: 08051abb1e64f3f458d368a2f11e375e, type: 3}
   arrMat:
-  - {fileID: 2100000, guid: 59127e6596c23ec4c94c062c1dc654d1, type: 2}
+  - {fileID: 2100000, guid: 11a479e0fc61e5646b15174fe024f42e, type: 2}
   - {fileID: 2100000, guid: 53b98c10e28fac440a7b3e17d8a50e57, type: 2}
   - {fileID: 2100000, guid: d076882ba50c3a242b7395feacd42a27, type: 2}
-  - {fileID: 2100000, guid: 11a479e0fc61e5646b15174fe024f42e, type: 2}
+  - {fileID: 2100000, guid: 59127e6596c23ec4c94c062c1dc654d1, type: 2}
   - {fileID: 2100000, guid: bd82cafc82848544abd5b95a34ff52c3, type: 2}
   - {fileID: 2100000, guid: 9b279e6b6be906a49a8a222a35f6fe20, type: 2}
 --- !u!4 &1360504043
@@ -2450,6 +2470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3efc3178c4ddc46b9276b7947f069a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui_Control: {fileID: 1081653228}
   spawnBalls: {fileID: 1360504042}
   destroyBall: {fileID: 177364615967115090, guid: 9093c45506713a14aaeced842130a281, type: 3}
 --- !u!4 &2051808275
