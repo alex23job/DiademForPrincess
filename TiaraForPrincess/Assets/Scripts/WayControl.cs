@@ -45,4 +45,59 @@ public class WayControl : MonoBehaviour
             arrRect[i] = rect;
         }
     }
+
+    public bool GeneratePlatform(int numCol)
+    {
+        // список номеров €чеек с цветом из параметра функции
+        List<int> candidat = new List<int>();
+        int i, numCnd;
+        for (i = 0; i < 18; i++)
+        {
+            if (arrColor[i] == numCol && arrPlatform[i] == null) candidat.Add(i);
+        }
+        for (i = 0; i < candidat.Count; i++)
+        {
+            numCnd = candidat[i];
+            if (numCnd < 3)
+            {
+                CreatePlatform(numCnd, numCol);
+                return true;
+            }
+            else
+            {
+                if (arrPlatform[numCnd - 3] != null)   //  в предидущем р€ду есть платформа
+                {
+                    CreatePlatform(numCnd, numCol);
+                    return true;
+                }
+                if (((numCnd % 3) < 2) && (arrPlatform[numCnd + 1] != null))    //  справа есть платформа
+                {
+                    CreatePlatform(numCnd, numCol);
+                    return true;
+                }
+                if (((numCnd % 3) > 0) && (arrPlatform[numCnd - 1] != null))    //  слева есть платформа
+                {
+                    CreatePlatform(numCnd, numCol);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private void CreatePlatform(int num, int numCol)
+    {
+        Vector3 pos = new Vector3(0, -0.1f, 0);
+        Vector3 rotate = new Vector3(-90f, 0, 0);
+        MeshRenderer mr;
+        GameObject platform = Instantiate(platformPrefab);
+        mr = platform.GetComponent<MeshRenderer>();
+        mr.materials = new Material[] { arrMaterials[numCol] };
+        platform.transform.parent = transform;
+        pos.x = -4.9f + 2 * (num / 3);
+        pos.z = -2f + 2 * (num % 3);
+        platform.transform.localPosition = pos;
+        platform.transform.localRotation = Quaternion.Euler(rotate);
+        arrPlatform[num] = platform;
+    }
 }

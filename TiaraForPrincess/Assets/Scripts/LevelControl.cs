@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelControl : MonoBehaviour
 {
     [SerializeField] private UI_Control ui_Control;
+    [SerializeField] private WayControl wayControl;
+
     [SerializeField] private SpawnBalls spawnBalls;
     [SerializeField] private GameObject destroyBall;
 
@@ -44,6 +46,15 @@ public class LevelControl : MonoBehaviour
         arrColors[index] = currentBallColor;
         if (Test3Balls(px)) Del3Balls();
         GenerateNewBall();
+    }
+
+    public void OnColorBtnClick(int numColor)
+    {
+        if (wayControl.GeneratePlatform(numColor))
+        {
+            arrColorPlatforms[numColor]--;
+            ui_Control.ViewBtnState(arrColorPlatforms);
+        }
     }
 
     private void GenerateNewBall()
