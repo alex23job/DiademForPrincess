@@ -57,6 +57,21 @@ public class LevelControl : MonoBehaviour
         }
     }
 
+    public void OnClearBtnClick()
+    {
+        ClearTubes();
+    }
+
+    public void ClearTubes()
+    {
+        for (int i = 0; i < 24; i++)
+        {
+            if (arrBalls[i] != null) arrBalls[i].GetComponent<BallMovement>().SetDestroy(destroyBall);
+            arrBalls[i] = null;
+            arrColors[i] = -1;
+        }
+    }
+
     private void GenerateNewBall()
     {
         currentBallColor = Random.Range(0, spawnBalls.CountMaterials);
