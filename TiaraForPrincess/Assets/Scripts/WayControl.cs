@@ -44,6 +44,7 @@ public class WayControl : MonoBehaviour
             rect.transform.parent = transform;
             rect.transform.localPosition = pos;
             rect.transform.localRotation = Quaternion.Euler(rotate);
+            rect.transform.localScale = new Vector3(100f, 100f, 100f);
             arrRect[i] = rect;
         }
     }
@@ -141,6 +142,7 @@ public class WayControl : MonoBehaviour
         pos.z = -2f + 2 * (num % 3);
         platform.transform.localPosition = pos;
         platform.transform.localRotation = Quaternion.Euler(rotate);
+        platform.transform.localScale = new Vector3(100f, 100f, 100f);
         arrPlatform[num] = platform;
     }
 }
