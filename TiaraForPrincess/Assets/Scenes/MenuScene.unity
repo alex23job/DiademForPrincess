@@ -1891,6 +1891,11 @@ MonoBehaviour:
   - {fileID: 2709585891713318036, guid: 3216cd03bf5e4154e85e2d7bf01e6ec7, type: 3}
   - {fileID: 1694870377420182145, guid: aa8708a68d0df8949af1e947cf0fbf4e, type: 3}
   arrGoldTiles: []
+  arrTailMat:
+  - {fileID: 2100000, guid: 16ec15f317cbf74409a3f224d4c75d54, type: 2}
+  - {fileID: 2100000, guid: 47af8d67c9fa1594189bc378cf485cc2, type: 2}
+  - {fileID: 2100000, guid: 394862a0b8dd8a746b139fb37dfae984, type: 2}
+  - {fileID: 2100000, guid: b1c0f68792999674eb06102e476c09b4, type: 2}
 --- !u!4 &1468962354
 Transform:
   m_ObjectHideFlags: 0

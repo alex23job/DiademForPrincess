@@ -8,6 +8,7 @@ public class TailPrefabPak : MonoBehaviour
 
     [SerializeField] private GameObject[] arrStones;
     [SerializeField] private GameObject[] arrGoldTiles;
+    [SerializeField] private Material[] arrTailMat;
 
     public int CountStones { get { return arrStones.Length; } }
     public int CountTiles {  get { return arrGoldTiles.Length; } }
@@ -35,5 +36,10 @@ public class TailPrefabPak : MonoBehaviour
     {
         if (index >= 0 && index < arrGoldTiles.Length) return arrGoldTiles[index];
         return null;
+    }
+
+    public Material GetMaterial(int index)
+    {
+        return ((index >= 0 && index < arrTailMat.Length) ? arrTailMat[index] : arrTailMat[0]);
     }
 }
