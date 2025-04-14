@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LinkPointControl : MonoBehaviour
 {
-    private Vector3 pointConnect = Vector3.zero;
-    private Vector3 rotateConnect = Vector3.zero;
+    //private Vector3 pointConnect = Vector3.zero;
+    //private Vector3 rotateConnect = Vector3.zero;
     private MeshRenderer mr = null;
     private GameObject connectPoint = null;
 
@@ -29,8 +29,8 @@ public class LinkPointControl : MonoBehaviour
         if (other.CompareTag("linkPoint"))
         {
             connectPoint = other.gameObject;
-            pointConnect = other.transform.parent.localPosition;
-            rotateConnect = other.transform.parent.localRotation.eulerAngles;
+            //pointConnect = other.transform.parent.localPosition;
+            //rotateConnect = other.transform.parent.localRotation.eulerAngles;
             mr = other.gameObject.GetComponent<MeshRenderer>();
             Material mat = TailPrefabPak.Instance.GetMaterial(3);
             mr.materials = new Material[] { mat };
@@ -43,8 +43,8 @@ public class LinkPointControl : MonoBehaviour
         if (other.CompareTag("linkPoint"))
         {
             connectPoint = null;
-            pointConnect = Vector3.zero;
-            rotateConnect = Vector3.zero;
+            //pointConnect = Vector3.zero;
+            //rotateConnect = Vector3.zero;
             mr = other.gameObject.GetComponent<MeshRenderer>();
             Material mat = TailPrefabPak.Instance.GetMaterial(1);
             mr.materials = new Material[] { mat };

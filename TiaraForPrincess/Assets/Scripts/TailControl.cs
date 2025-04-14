@@ -59,6 +59,7 @@ public class TailControl : MonoBehaviour
                 transform.gameObject.GetComponent<BoxCollider>().enabled = false;
                 child.gameObject.SetActive(false);
                 lpc.ConnectionPoint.SetActive(false);
+                isChild = true;
             }
         }
     }
