@@ -27,6 +27,7 @@ public class LevelControl : MonoBehaviour
         arrColorPlatforms = new int[spawnBalls.CountMaterials];
         spawnBalls.SetLevelControl(gameObject.GetComponent<LevelControl>());
         GenerateNewBall();
+        GenerateBonus();
     }
 
     // Update is called once per frame
@@ -70,6 +71,16 @@ public class LevelControl : MonoBehaviour
             arrBalls[i] = null;
             arrColors[i] = -1;
         }
+    }
+
+    private void GenerateBonus()
+    {
+        int idBonusStone = Random.Range(0, TailPrefabPak.Instance.CountStones);
+        int idBonusTail = Random.Range(0, TailPrefabPak.Instance.CountTiles);
+        wayControl.SetBonus(TailPrefabPak.Instance.GetStone(idBonusStone));
+        GameObject tail = TailPrefabPak.Instance.GetTail(idBonusTail);
+        tail.GetComponent<TailControl>().SetTailID(idBonusTail);
+        wayControl.SetBonus(tail);
     }
 
     private void GenerateNewBall()

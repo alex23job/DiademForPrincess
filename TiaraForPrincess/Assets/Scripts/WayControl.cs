@@ -51,7 +51,7 @@ public class WayControl : MonoBehaviour
 
     public void SetBonus(GameObject bonusPrefab)
     {
-        Vector3 pos = new Vector3(0, 1f, 0);
+        Vector3 pos = new Vector3(0, 0.3f, 0);
         List<int> candidat = new List<int>() { 3, 5, 6, 8, 9, 11, 12, 14};
         int numPos = Random.Range(0, candidat.Count);
         while (posBonus.Contains(candidat[numPos]))
@@ -60,11 +60,14 @@ public class WayControl : MonoBehaviour
             if (candidat.Count == 0) return;
             numPos = Random.Range(0, candidat.Count);
         }
+        TailControl tc = bonusPrefab.GetComponent<TailControl>();
         GameObject bonus = Instantiate(bonusPrefab);
         bonus.transform.parent = transform;
         pos.x = -4.9f + 2 * (candidat[numPos] / 3);
         pos.z = -2f + 2 * (candidat[numPos] % 3);
+        bonus.transform.localScale = new Vector3(70f, 70f, 70f);
         bonus.transform.localPosition = pos;
+        if (tc != null) bonus.GetComponent<TailControl>().SetTailID(tc.TailID);
         posBonus.Add(candidat[numPos]);
     }
 

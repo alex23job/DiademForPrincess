@@ -8,6 +8,10 @@ public class TailControl : MonoBehaviour
     private bool isMove = false;
     private bool isChild = false;
     private Vector3 delta = Vector3.zero;
+    private int tailID = -1;
+
+    public int TailID { get { return tailID; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,14 @@ public class TailControl : MonoBehaviour
         }
     }
 
+    public void SetTailID(int id)
+    {
+        tailID = id;
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+        isChild = true;
+    }
+
     private void OnMouseDown()
     {
         if (isChild) return;
@@ -44,6 +56,7 @@ public class TailControl : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (isChild) return;
         if (!Input.GetMouseButtonDown(0))
         {
             isMove = false;
