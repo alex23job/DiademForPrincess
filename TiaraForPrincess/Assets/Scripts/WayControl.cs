@@ -68,6 +68,8 @@ public class WayControl : MonoBehaviour
         bonus.transform.localScale = new Vector3(70f, 70f, 70f);
         bonus.transform.localPosition = pos;
         if (tc != null) bonus.GetComponent<TailControl>().SetTailID(tc.TailID);
+        bonus.tag = "bonus";
+        bonus.GetComponent<BoxCollider>().isTrigger = true;
         posBonus.Add(candidat[numPos]);
     }
 

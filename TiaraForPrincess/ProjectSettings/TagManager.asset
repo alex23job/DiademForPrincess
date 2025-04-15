@@ -8,6 +8,7 @@ TagManager:
   - stone
   - tail
   - linkPoint
+  - bonus
   layers:
   - Default
   - TransparentFX
