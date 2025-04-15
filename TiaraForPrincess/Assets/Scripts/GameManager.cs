@@ -90,6 +90,9 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.currentPlayer.countBattle = data.countBattle;
         GameManager.Instance.currentPlayer.countWin = data.countWin;
         GameManager.Instance.currentPlayer.totalScore = data.score;
+
+        GameManager.Instance.currentPlayer.inventory = new Inventory(data.csvInventory);
+
         //GameManager.Instance.currentPlayer.maxQwScore = data.qwMaxScore;
         //GameManager.Instance.currentPlayer.maxHexScore = data.hexMaxScore;
         //GameManager.Instance.currentPlayer.maxPrismScore = data.prismMaxScore;
@@ -128,6 +131,8 @@ public class GameManager : MonoBehaviour
         data.countBattle = GameManager.Instance.currentPlayer.countBattle;
         data.countWin = GameManager.Instance.currentPlayer.countWin;
 
+        data.csvInventory = GameManager.Instance.currentPlayer.inventory.ToCsvString();
+
         data.isHints = GameManager.Instance.currentPlayer.isHintView;
         data.isFone = GameManager.Instance.currentPlayer.isSoundFone;
         data.isEffects = GameManager.Instance.currentPlayer.isSoundEffects;
@@ -157,6 +162,8 @@ public class PlayerInfo
     public int currentScore = 0;
     public int countBattle = 0;
     public int countWin = 0;
+
+    public Inventory inventory;
 
     public int countSecond = 0;
     public int countLine = 0;
@@ -203,6 +210,7 @@ public class PlayerInfo
     {
         //maxLevel = 0;
         //currentLevel = 0;
+        inventory = new Inventory();
     }
 
     public static PlayerInfo FirstGame()
@@ -275,6 +283,7 @@ public class SaveData
     //public int qwMaxScore;
     //public int hexMaxScore;
     //public int prismMaxScore;
+    public string csvInventory = "";
 
     public bool isFone;
     public bool isEffects;
