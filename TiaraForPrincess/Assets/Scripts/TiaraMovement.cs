@@ -30,14 +30,14 @@ public class TiaraMovement : MonoBehaviour
     public void OnLeftClick()
     {
         Vector3 rot = transform.rotation.eulerAngles;
-        rot.z += -0.2f * speedRot;
+        rot.z += 0.2f * speedRot;
         transform.rotation = Quaternion.Euler(rot);
     }
 
     public void OnRightClick()
     {
         Vector3 rot = transform.rotation.eulerAngles;
-        rot.z += 0.2f * speedRot;
+        rot.z += -0.2f * speedRot;
         transform.rotation = Quaternion.Euler(rot);
     }
 }
