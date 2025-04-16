@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class WayControl : MonoBehaviour
@@ -149,5 +150,23 @@ public class WayControl : MonoBehaviour
         platform.transform.localRotation = Quaternion.Euler(rotate);
         platform.transform.localScale = new Vector3(100f, 100f, 100f);
         arrPlatform[num] = platform;
+    }
+
+    public void Finish()
+    {
+        WavePath wp = new WavePath();
+        wp.CreateBoard(arrRect);
+        wp.SetStartEnd(posBonus[0], posBonus[1]);
+        print($"startPos={posBonus[0]} endPos={posBonus[1]}");
+        if (wp.FindPath())
+        {
+            int[] pt = wp.GetPath();
+            StringBuilder sb = new StringBuilder("Path -> ");
+            for (int i = 0; i < pt.Length; i++)
+            {
+                sb.Append($"{pt[i]} ");
+            }
+            print(sb.ToString());
+        }
     }
 }

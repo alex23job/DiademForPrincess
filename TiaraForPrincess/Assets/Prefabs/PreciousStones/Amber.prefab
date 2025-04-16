@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3520409630131900766}
   - component: {fileID: 6793470919020831444}
   - component: {fileID: 5805808941533344149}
-  - component: {fileID: 3264212901526482793}
+  - component: {fileID: 6610654648276990965}
   m_Layer: 0
   m_Name: Amber
   m_TagString: stone
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3264212901526482793
-CapsuleCollider:
+--- !u!65 &6610654648276990965
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,8 +102,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0041041654
-  m_Height: 0.012410922
-  m_Direction: 2
-  m_Center: {x: -5.9604643e-10, y: -0.000016233924, z: -0.000034779914}
+  serializedVersion: 3
+  m_Size: {x: 0.007999998, y: 0.007999998, z: 0.011999998}
+  m_Center: {x: -4.656613e-10, y: 4.656612e-10, z: 0}
