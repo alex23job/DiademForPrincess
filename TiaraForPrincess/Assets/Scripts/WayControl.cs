@@ -8,6 +8,7 @@ public class WayControl : MonoBehaviour
     [SerializeField] private GameObject rectPrefab;
     [SerializeField] private GameObject platformPrefab;
     [SerializeField] private Material[] arrMaterials;
+    [SerializeField] private ManMovement manMovement;
 
     private int[] arrColor = null;
     private GameObject[] arrRect = null;
@@ -150,6 +151,18 @@ public class WayControl : MonoBehaviour
         platform.transform.localRotation = Quaternion.Euler(rotate);
         platform.transform.localScale = new Vector3(100f, 100f, 100f);
         arrPlatform[num] = platform;
+        TestPath();
+    }
+
+    public void TestPath()
+    {
+        int res = 0;
+        if ((arrPlatform[17] != null) || (arrPlatform[16] != null) || (arrPlatform[15] != null)) res++;
+        if ((arrPlatform[posBonus[0]] != null) && (arrPlatform[posBonus[1]] != null)) res++;
+        if (res == 2)
+        {
+
+        }
     }
 
     public void Finish()

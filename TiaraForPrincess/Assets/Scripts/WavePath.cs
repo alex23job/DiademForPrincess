@@ -54,13 +54,13 @@ public class WavePath
         }
         countQu = countMaxQu;
 
-        StringBuilder sb = new StringBuilder();
+        /*StringBuilder sb = new StringBuilder();
         for (i = 0; i < Wave.Length; i++)
         {
             sb.Append($"{Wave[i]} ");
         }
         sb.Append($"  maxQu={countQu}");
-        Debug.Log(sb.ToString());
+        Debug.Log(sb.ToString());*/
         //return false;
         if (startNum != -1 && endNum != -1)
         {
@@ -82,13 +82,13 @@ public class WavePath
                 {
                     if (Wave[i] != -1 && Wave[i] != maxZn) countQu++;
                 }
-                sb = new StringBuilder();
+                /*sb = new StringBuilder();
                 for (i = 0; i < Wave.Length; i++)
                 {
                     sb.Append($" {((i % 3 == 0) ?  '#' : ' ')} {Wave[i]}");
                 }
                 sb.Append($" step = {step}    countQu = {countQu}");
-                Debug.Log(sb.ToString());
+                Debug.Log(sb.ToString());*/
                 if (countQu == countMaxQu) break;
             }
             //return false;
@@ -102,11 +102,15 @@ public class WavePath
                 while(step > 0)
                 {
                     x = i % 3; y = i / 3;
-                    if ((x > 0) && (Wave[i - 1] != -1) && (Wave[i - 1] < Wave[i])) { step = Wave[i - 1]; path.Add(i - 1); ei = i - 1; }
+                    if ((x > 0) && (Wave[i - 1] != -1) && (Wave[i - 1] < Wave[i])) { step = Wave[i - 1]; path.Add(i - 1); i--; continue; }
+                    if ((x < 2) && (Wave[i + 1] != -1) && (Wave[i + 1] < Wave[i])) { step = Wave[i + 1]; path.Add(i + 1); i++; continue; }
+                    if ((y > 0) && (Wave[i - 3] != -1) && (Wave[i - 3] < Wave[i])) { step = Wave[i - 3]; path.Add(i - 3); i-=3; continue; }
+                    if ((y < 5) && (Wave[i + 3] != -1) && (Wave[i + 3] < Wave[i])) { step = Wave[i + 3]; path.Add(i + 3); i+=3; continue; }
+                    /*if ((x > 0) && (Wave[i - 1] != -1) && (Wave[i - 1] < Wave[i])) { step = Wave[i - 1]; path.Add(i - 1); ei = i - 1; }
                     if ((x < 2) && (Wave[i + 1] != -1) && (Wave[i + 1] < Wave[i])) { step = Wave[i + 1]; path.Add(i + 1); ei = i + 1; }
                     if ((y > 0) && (Wave[i - 3] != -1) && (Wave[i - 3] < Wave[i])) { step = Wave[i - 3]; path.Add(i - 3); ei = i - 3; }
                     if ((y < 5) && (Wave[i + 3] != -1) && (Wave[i + 3] < Wave[i])) { step = Wave[i + 3]; path.Add(i + 3); ei = i + 3; }
-                    i = ei;
+                    i = ei;*/
                 }
                 //path.Add(startNum);
                 path.Reverse();
