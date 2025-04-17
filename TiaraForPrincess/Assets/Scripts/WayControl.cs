@@ -160,8 +160,16 @@ public class WayControl : MonoBehaviour
         if ((arrPlatform[17] != null) || (arrPlatform[16] != null) || (arrPlatform[15] != null)) res++;
         if ((arrPlatform[posBonus[0]] != null) && (arrPlatform[posBonus[1]] != null)) res++;
         if (res == 2)
-        {
-
+        {   //  есть платформы под бонусами и в последнем ряду -> можно пробовать строить маршрут для принца
+            List<int> path = new List<int>();
+            List<Vector3> pathPoints = new List<Vector3>();
+            int firstTarget = posBonus[1], secondTarget = posBonus[0];
+            if (posBonus[0] < posBonus[1])
+            {
+                firstTarget = posBonus[0];
+                secondTarget = posBonus[1];
+            }
+            int x = firstTarget % 3;
         }
     }
 

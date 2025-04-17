@@ -70,7 +70,8 @@ public class ManMovement : MonoBehaviour
             if (delta.magnitude > movement.magnitude) transform.localPosition = transform.localPosition - movement;
             else transform.localPosition = target;
             float rotY = Mathf.Atan2(delta.x, delta.z) * 180 / Mathf.PI;
-            transform.localRotation = Quaternion.Euler(new Vector3(0, rotY, 0));
+            //transform.localRotation = Quaternion.Euler(new Vector3(0, rotY, 0));
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.LookRotation(delta), 6 * Time.deltaTime);
             //transform.LookAt(target);
             //rb.AddForce(movement);
             //transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
