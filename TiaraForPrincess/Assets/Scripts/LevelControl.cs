@@ -28,7 +28,7 @@ public class LevelControl : MonoBehaviour
         spawnBalls.SetLevelControl(gameObject.GetComponent<LevelControl>());
         GenerateNewBall();
         GenerateBonus();
-        wayControl.Finish();
+        //wayControl.Finish();
     }
 
     // Update is called once per frame

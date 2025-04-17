@@ -43,7 +43,7 @@ public class ManMovement : MonoBehaviour
         Vector3 delta = transform.localPosition - target;
         if (delta.sqrMagnitude < 0.01f)
         {
-            print($"1 delta={delta} deltaN={delta.normalized}");
+            //print($"1 delta={delta} deltaN={delta.normalized}");
             transform.localPosition = target;
             if (isIdle)
             {
@@ -61,7 +61,7 @@ public class ManMovement : MonoBehaviour
                 }
             }
             delta = transform.localPosition - target;
-            print($"2 delta={delta} deltaN={delta.normalized}");
+            //print($"2 delta={delta} deltaN={delta.normalized}");
         }
         else
         {
@@ -69,23 +69,24 @@ public class ManMovement : MonoBehaviour
             //delta = transform.localPosition - movement;
             if (delta.magnitude > movement.magnitude) transform.localPosition = transform.localPosition - movement;
             else transform.localPosition = target;
-            float rotY = Mathf.Atan2(delta.x, delta.z) * 180 / Mathf.PI;
-            //transform.localRotation = Quaternion.Euler(new Vector3(0, rotY, 0));
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.LookRotation(delta), 6 * Time.deltaTime);
-            //transform.LookAt(target);
-            //rb.AddForce(movement);
-            //transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-            //transform.Rotate(0, input * rotationRate * Time.deltaTime, 0);
 
-            //transform.Rotate(delta * rotationRate * Time.deltaTime);
+            //float rotY = Mathf.Atan2(delta.x, delta.z) * 180 / Mathf.PI;
+            //transform.localRotation = Quaternion.Euler(new Vector3(0, rotY, 0));
+
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.LookRotation(delta), 6 * Time.deltaTime);
         }
     }
 
     public void SetArrPoints(List<Vector3> points)
     {
-        arrPoint = points;
-        target = arrPoint[0];
-        isMove = true;
         isIdle = false;
+        arrPoint.Clear();
+        for (int i = 0; i < points.Count; i++)
+        {
+            arrPoint.Add(points[i]);
+            print($"{i} => {points[i]}");
+        }
+        target = arrPoint[0];
+        isMove = true;        
     }
 }

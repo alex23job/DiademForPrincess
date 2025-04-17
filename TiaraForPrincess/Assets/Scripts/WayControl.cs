@@ -14,6 +14,9 @@ public class WayControl : MonoBehaviour
     private GameObject[] arrRect = null;
     private GameObject[] arrPlatform = null;
     private List<int> posBonus = null;
+
+    private float timer = 3f;
+    private bool isTest = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +30,18 @@ public class WayControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (timer > 0) timer -= Time.deltaTime;
+        else
+        {
+            if (isTest)
+            {
+                for (int i = 0; i < 16; i++)
+                {
+                    CreatePlatform(i, i % 6);
+                }
+                isTest = false;
+            }
+        }
     }
 
     public void GenerateWay()
@@ -169,7 +183,68 @@ public class WayControl : MonoBehaviour
                 firstTarget = posBonus[0];
                 secondTarget = posBonus[1];
             }
-            int x = firstTarget % 3;
+            int i, x = firstTarget % 3;
+            int[] pt = new int[1] { -1};
+            WavePath wp = new WavePath();
+            wp.CreateBoard(arrPlatform);
+            if (arrPlatform[x] == null)
+            {
+                for(i = 0; i < 3; i++)
+                {
+                    if (arrPlatform[i] != null)
+                    {
+                        wp.SetStartEnd(i, firstTarget);
+                        if (wp.FindPath())
+                        {
+                            pt = wp.GetPath();
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                wp.SetStartEnd(x, firstTarget);
+                if (wp.FindPath())
+                {
+                    pt = wp.GetPath();
+                }
+            }
+            if (pt[0] != -1)
+            {
+                pathPoints.Add(new Vector3(-6.5f, 0.5f, -2f + pt[0] * 2f));
+                for (i = 0; i < pt.Length; i++)
+                {
+                    pathPoints.Add(new Vector3(-6.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
+                }
+                wp.SetStartEnd(firstTarget, secondTarget);
+                if (wp.FindPath())
+                {
+                    pt = wp.GetPath();
+                    for (i = 1; i < pt.Length; i++)
+                    {
+                        pathPoints.Add(new Vector3(-6.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
+                    }
+                    for (i = 0; i < 3; i++)
+                    {
+                        if (arrPlatform[i + 15] != null)
+                        {
+                            wp.SetStartEnd(secondTarget, i + 15);
+                            if (wp.FindPath())
+                            {
+                                pt = wp.GetPath();
+                                for (i = 1; i < pt.Length; i++)
+                                {
+                                    pathPoints.Add(new Vector3(-6.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
+                                }
+                                pathPoints.Add(new Vector3(6.5f, 0.5f, -2f + (pt[pt.Length - 1] % 3) * 2f));
+                                if ((pt[pt.Length - 1] % 3) != 1) pathPoints.Add(new Vector3(6.5f, 0.5f, 0f));
+                                manMovement.SetArrPoints(pathPoints);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
