@@ -45,6 +45,7 @@ public class WavePath
 
     public bool FindPath()
     {
+        path.Clear();
         int[] Wave = new int[arQu.Length];
         int i, step = 1, x, y, countMaxQu = 0, countQu, maxZn = arQu.Length * arQu.Length;
         for (i = 0; i < arQu.Length; i++)

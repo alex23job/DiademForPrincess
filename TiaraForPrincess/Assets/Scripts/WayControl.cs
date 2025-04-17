@@ -237,8 +237,8 @@ public class WayControl : MonoBehaviour
                                 {
                                     pathPoints.Add(new Vector3(-6.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
                                 }
-                                pathPoints.Add(new Vector3(6.5f, 0.5f, -2f + (pt[pt.Length - 1] % 3) * 2f));
-                                if ((pt[pt.Length - 1] % 3) != 1) pathPoints.Add(new Vector3(6.5f, 0.5f, 0f));
+                                pathPoints.Add(new Vector3(7f, 0.5f, -2f + (pt[pt.Length - 1] % 3) * 2f));
+                                if ((pt[pt.Length - 1] % 3) != 1) pathPoints.Add(new Vector3(7f, 0.5f, 0f));
                                 manMovement.SetArrPoints(pathPoints);
                             }
                         }
