@@ -94,3 +94,28 @@ public class StoneControl : MonoBehaviour
         }
     }
 }
+
+public class StoneInfo : MonoBehaviour
+{
+    private int id = -1;
+    private int cat = -1;
+    public int StoneID { get { return id; } }
+    public int StoneCategory { get { return cat; } }
+    public StoneInfo() { }
+    public StoneInfo(int stoneID)
+    {
+        id = stoneID;
+        cat = (id / 5) + 1;
+    }
+
+    public void SetStoneID(int stoneID)
+    {
+        id = stoneID;
+        cat = (id / 5) + 1;
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
+}

@@ -1884,7 +1884,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrStones:
-  - {fileID: 3579967656665849701, guid: c8facb2ffc6d5ae4dbb2e192c33cedab, type: 3}
   - {fileID: 7599249886909704976, guid: 724e6fc89d8eb1b4dad38e5031ed530e, type: 3}
   - {fileID: 3334142331467752079, guid: 63310be980b222d4fb88224ba0a00385, type: 3}
   - {fileID: 1746763595963515729, guid: 73fff1c931998db49933c62c53671045, type: 3}
@@ -1894,6 +1893,7 @@ MonoBehaviour:
   - {fileID: 2386409303026927412, guid: 57d0b3c4c1981914a98b4e7568d6c2dc, type: 3}
   - {fileID: 2709585891713318036, guid: 3216cd03bf5e4154e85e2d7bf01e6ec7, type: 3}
   - {fileID: 1694870377420182145, guid: aa8708a68d0df8949af1e947cf0fbf4e, type: 3}
+  - {fileID: 3579967656665849701, guid: c8facb2ffc6d5ae4dbb2e192c33cedab, type: 3}
   arrGoldTiles:
   - {fileID: 1266580488527794217, guid: c60cf272213f28349b3aa7cee8018b50, type: 3}
   arrTailMat:
@@ -1901,8 +1901,21 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 47af8d67c9fa1594189bc378cf485cc2, type: 2}
   - {fileID: 2100000, guid: 394862a0b8dd8a746b139fb37dfae984, type: 2}
   - {fileID: 2100000, guid: b1c0f68792999674eb06102e476c09b4, type: 2}
-  arrStonesSprites: []
-  arrTilesSprites: []
+  arrStonesSprites:
+  - {fileID: 21300000, guid: ee1766f159376264ea4bbd8c7c39982c, type: 3}
+  - {fileID: 21300000, guid: 86c0a5eca15d42043be468a3f3fdaf3f, type: 3}
+  - {fileID: 21300000, guid: 216cd41cf7b8d0141985c333a1d22a4d, type: 3}
+  - {fileID: 21300000, guid: 40a5100835bacd44c8a892c2c8fac1bc, type: 3}
+  - {fileID: 21300000, guid: f49b8b6a9754c964aa13b9b1765d4cb0, type: 3}
+  - {fileID: 21300000, guid: 3fcf81a91d5685348a5ac6b54931aa16, type: 3}
+  - {fileID: 21300000, guid: baeac059dcec1c84480d0e61df1d4f75, type: 3}
+  - {fileID: 21300000, guid: 7eb772b26a7d8ec409286524d0fff485, type: 3}
+  - {fileID: 21300000, guid: 55d3e915795005d418107c1b8ab458c3, type: 3}
+  - {fileID: 21300000, guid: ed63c88a4bf158646a2563d02ab6c659, type: 3}
+  arrTilesSprites:
+  - {fileID: 21300000, guid: ee0a225b932e5c0469e1827dcfa3b1f9, type: 3}
+  - {fileID: 21300000, guid: f3c62bd7bcd849145b1890dab4b2faa2, type: 3}
+  - {fileID: 21300000, guid: a6ab319ed0411764aa51cdd58bd06ab0, type: 3}
 --- !u!4 &1468962354
 Transform:
   m_ObjectHideFlags: 0

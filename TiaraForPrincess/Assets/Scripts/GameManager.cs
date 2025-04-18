@@ -164,6 +164,7 @@ public class PlayerInfo
     public int countWin = 0;
 
     public Inventory inventory;
+    public Inventory currentInventory;
 
     public int countSecond = 0;
     public int countLine = 0;

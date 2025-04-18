@@ -77,6 +77,7 @@ public class WayControl : MonoBehaviour
             numPos = Random.Range(0, candidat.Count);
         }
         TailControl tc = bonusPrefab.GetComponent<TailControl>();
+        StoneInfo si = bonusPrefab.GetComponent<StoneInfo>();
         GameObject bonus = Instantiate(bonusPrefab);
         bonus.transform.parent = transform;
         pos.x = -4.9f + 2 * (candidat[numPos] / 3);
@@ -85,8 +86,14 @@ public class WayControl : MonoBehaviour
         bonus.transform.localPosition = pos;
         if (tc != null) bonus.GetComponent<TailControl>().SetTailID(tc.TailID);
         bonus.tag = "bonus";
+        if (si != null)
+        {
+            bonus.GetComponent<StoneInfo>().SetStoneID(si.StoneID);
+            bonus.tag = "stone";
+        }
         bonus.GetComponent<BoxCollider>().isTrigger = true;
         posBonus.Add(candidat[numPos]);
+        GameManager.Instance.currentPlayer.currentInventory = new Inventory();
     }
 
     public bool GeneratePlatform(int numCol)

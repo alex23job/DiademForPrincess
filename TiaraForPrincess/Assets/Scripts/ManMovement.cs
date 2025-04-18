@@ -82,13 +82,13 @@ public class ManMovement : MonoBehaviour
     {
         isIdle = false;
         arrPoint.Clear();
-        StringBuilder sb = new StringBuilder();
+        //StringBuilder sb = new StringBuilder();
         for (int i = 0; i < points.Count; i++)
         {
             arrPoint.Add(points[i]);
-            sb.Append($"{i} - {points[i]}; ");
+            //sb.Append($"{i} - {points[i]}; ");
         }
-        print(sb.ToString());
+        //print(sb.ToString());
         target = arrPoint[0];
         isMove = true;        
     }

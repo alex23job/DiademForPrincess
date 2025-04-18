@@ -78,7 +78,10 @@ public class LevelControl : MonoBehaviour
     {
         int idBonusStone = Random.Range(0, TailPrefabPak.Instance.CountStones);
         int idBonusTail = Random.Range(0, TailPrefabPak.Instance.CountTiles);
-        wayControl.SetBonus(TailPrefabPak.Instance.GetStone(idBonusStone));
+        GameObject stone = TailPrefabPak.Instance.GetStone(idBonusStone);
+        stone.AddComponent<StoneInfo>();
+        stone.GetComponent<StoneInfo>().SetStoneID(idBonusStone);
+        wayControl.SetBonus(stone);
         GameObject tail = TailPrefabPak.Instance.GetTail(idBonusTail);
         tail.GetComponent<TailControl>().SetTailID(idBonusTail);
         wayControl.SetBonus(tail);
