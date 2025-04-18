@@ -115,6 +115,12 @@ public class WavePath
                 }
                 //path.Add(startNum);
                 path.Reverse();
+                StringBuilder sb = new StringBuilder("Path -> ");
+                for (i = 0; i < path.Count; i++)
+                {
+                    sb.Append($"{path[i]} ");
+                }
+                Debug.Log(sb.ToString());
                 return true;
             }
         }

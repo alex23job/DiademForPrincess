@@ -215,7 +215,7 @@ public class WayControl : MonoBehaviour
                 pathPoints.Add(new Vector3(-6.5f, 0.5f, -2f + pt[0] * 2f));
                 for (i = 0; i < pt.Length; i++)
                 {
-                    pathPoints.Add(new Vector3(-6.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
+                    pathPoints.Add(new Vector3(-4.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
                 }
                 wp.SetStartEnd(firstTarget, secondTarget);
                 if (wp.FindPath())
@@ -223,7 +223,7 @@ public class WayControl : MonoBehaviour
                     pt = wp.GetPath();
                     for (i = 1; i < pt.Length; i++)
                     {
-                        pathPoints.Add(new Vector3(-6.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
+                        pathPoints.Add(new Vector3(-4.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
                     }
                     for (i = 0; i < 3; i++)
                     {
@@ -235,7 +235,7 @@ public class WayControl : MonoBehaviour
                                 pt = wp.GetPath();
                                 for (i = 1; i < pt.Length; i++)
                                 {
-                                    pathPoints.Add(new Vector3(-6.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
+                                    pathPoints.Add(new Vector3(-4.5f + 2f * (pt[i] / 3), 0.5f, -2f + (pt[i] % 3) * 2f));
                                 }
                                 pathPoints.Add(new Vector3(7f, 0.5f, -2f + (pt[pt.Length - 1] % 3) * 2f));
                                 if ((pt[pt.Length - 1] % 3) != 1) pathPoints.Add(new Vector3(7f, 0.5f, 0f));
@@ -252,8 +252,10 @@ public class WayControl : MonoBehaviour
     {
         WavePath wp = new WavePath();
         wp.CreateBoard(arrRect);
-        wp.SetStartEnd(posBonus[0], posBonus[1]);
-        print($"startPos={posBonus[0]} endPos={posBonus[1]}");
+        //wp.SetStartEnd(posBonus[0], posBonus[1]);
+        //print($"startPos={posBonus[0]} endPos={posBonus[1]}");
+        wp.SetStartEnd(3, 14);
+        //print($"startPos={posBonus[0]} endPos={posBonus[1]}");
         if (wp.FindPath())
         {
             int[] pt = wp.GetPath();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class ManMovement : MonoBehaviour
@@ -81,11 +82,13 @@ public class ManMovement : MonoBehaviour
     {
         isIdle = false;
         arrPoint.Clear();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < points.Count; i++)
         {
             arrPoint.Add(points[i]);
-            print($"{i} => {points[i]}");
+            sb.Append($"{i} - {points[i]}; ");
         }
+        print(sb.ToString());
         target = arrPoint[0];
         isMove = true;        
     }
