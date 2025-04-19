@@ -29,7 +29,7 @@ public class WayControl : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   //  для отладки сбора бонусов
         if (timer > 0) timer -= Time.deltaTime;
         else
         {
