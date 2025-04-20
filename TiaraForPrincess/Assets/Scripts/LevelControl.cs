@@ -37,6 +37,11 @@ public class LevelControl : MonoBehaviour
         
     }
 
+    public void EndLevel()
+    {
+        GameManager.Instance.currentPlayer.inventory.UpdateItems(GameManager.Instance.currentPlayer.currentInventory);
+    }
+
     public void BallMoveEnd(Vector3 pos)
     {
         

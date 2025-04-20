@@ -42,8 +42,11 @@ public class UI_Control : MonoBehaviour
 
     public void ViewBonus(Sprite spr)
     {
-        arrImgBonus[indexBonus].color = Color.white;
-        arrImgBonus[indexBonus++].sprite = spr;
+        if (indexBonus < 2)
+        {
+            arrImgBonus[indexBonus].color = Color.white;
+            arrImgBonus[indexBonus++].sprite = spr;
+        }
     }
 
     public void ClearImgBonus()

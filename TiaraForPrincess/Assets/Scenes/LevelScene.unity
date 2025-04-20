@@ -1927,6 +1927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   rotationRate: 360
+  levelControl: {fileID: 2051808274}
 --- !u!114 &928132214
 MonoBehaviour:
   m_ObjectHideFlags: 0

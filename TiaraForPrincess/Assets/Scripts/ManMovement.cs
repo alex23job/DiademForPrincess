@@ -7,6 +7,7 @@ public class ManMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float rotationRate = 360;
+    [SerializeField] private LevelControl levelControl;
 
     private Rigidbody rb;
     private Animator anim;
@@ -58,7 +59,7 @@ public class ManMovement : MonoBehaviour
                 if (moveNumber < arrPoint.Count) target = arrPoint[moveNumber];
                 else // финальный путь пройден -> закончить прохождение уровня
                 {
-                    
+                    levelControl.EndLevel();
                 }
             }
             delta = transform.localPosition - target;

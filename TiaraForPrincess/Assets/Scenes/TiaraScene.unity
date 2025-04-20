@@ -748,6 +748,7 @@ GameObject:
   - component: {fileID: 583586429}
   - component: {fileID: 583586431}
   - component: {fileID: 583586430}
+  - component: {fileID: 583586432}
   m_Layer: 5
   m_Name: InventPanel
   m_TagString: Untagged
@@ -820,6 +821,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583586428}
   m_CullTransparentMesh: 1
+--- !u!114 &583586432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583586428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7819345ed2350c4a890889c4269185c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnUp: {fileID: 1666092420}
+  btnDown: {fileID: 1298981153}
+  arrBtnItems:
+  - {fileID: 2066984564}
+  - {fileID: 295333917}
+  - {fileID: 619337078}
+  - {fileID: 610436941}
+  - {fileID: 698167361}
+  - {fileID: 1923067290}
 --- !u!1 &610436939
 GameObject:
   m_ObjectHideFlags: 0
