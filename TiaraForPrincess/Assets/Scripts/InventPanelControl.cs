@@ -13,7 +13,7 @@ public class InventPanelControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print($"Count inventory {GameManager.Instance.currentPlayer.inventory.Count}");
+        print($"Count inventory {GameManager.Instance.currentPlayer.inventory.Count} {GameManager.Instance.currentPlayer.inventory.ToCsvString()}");
         ViewInventory();
     }
 

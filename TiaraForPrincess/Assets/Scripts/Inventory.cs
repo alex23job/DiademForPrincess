@@ -30,10 +30,12 @@ public class Inventory
             }
         }
         items.Add(new ItemTail(id, number));
+        //Debug.Log($"id={id} num={number}");
     }
 
     public void Add(ItemTail newItem)
     {
+        //Debug.Log($"ItemTail id={newItem.ItemID} num={newItem.Count}");
         foreach (ItemTail item in items)
         {
             if (item.ItemID == newItem.ItemID)
@@ -64,7 +66,9 @@ public class Inventory
         for(int i = 0; i < current.Count; i++)
         {
             Add(current.GetItem(i));
+            //Debug.Log($"update item[{i}]={current.GetItem(i).GetCsvString()}");
         }
+        //Debug.Log($"Update {ToCsvString()}");
     }
 
     public string ToCsvString(char sep = '#')
@@ -91,6 +95,7 @@ public class ItemTail
         count = number;
         if (id < 20) sprite = TailPrefabPak.Instance.GetStoneSprite(itemID);
         else sprite = TailPrefabPak.Instance.GetTileSprite(itemID - 20);
+        //Debug.Log($"ItemTail {GetCsvString()}");
     }
 
     public ItemTail(string csvStr)

@@ -60,6 +60,7 @@ public class ManMovement : MonoBehaviour
                 else // финальный путь пройден -> закончить прохождение уровня
                 {
                     levelControl.EndLevel();
+                    isMove = false;
                 }
             }
             delta = transform.localPosition - target;
