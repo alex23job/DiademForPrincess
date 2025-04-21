@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1030078003883845319}
   - component: {fileID: 7162501374849801641}
   m_Layer: 0
-  m_Name: Topaz
+  m_Name: Sapphire
   m_TagString: stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
