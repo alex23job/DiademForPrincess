@@ -1897,6 +1897,7 @@ MonoBehaviour:
   arrGoldTiles:
   - {fileID: 1266580488527794217, guid: c60cf272213f28349b3aa7cee8018b50, type: 3}
   - {fileID: 5399481739523857137, guid: e923466b90c3abd4a938b149f1f252fc, type: 3}
+  - {fileID: 6341130308810454944, guid: 4093aea0987e17f4491e2cb7b6a9b98a, type: 3}
   arrTailMat:
   - {fileID: 2100000, guid: 16ec15f317cbf74409a3f224d4c75d54, type: 2}
   - {fileID: 2100000, guid: 47af8d67c9fa1594189bc378cf485cc2, type: 2}

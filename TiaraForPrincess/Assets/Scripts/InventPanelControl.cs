@@ -50,8 +50,10 @@ public class InventPanelControl : MonoBehaviour
         if (currentItemTail.ItemID >= 20)
         {
             tail = Instantiate(TailPrefabPak.Instance.GetTail(currentItemTail.ItemID - 20));
-            tail.transform.GetChild(0).gameObject.SetActive(true);
-            tail.transform.GetChild(1).gameObject.SetActive(true);
+            for (int i = 0; i < tail.transform.childCount; i++)
+            {
+                tail.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
         Vector3 pos = new Vector3(-1.8f, 2f, 0);
         if (tail != null) tail.transform.position = pos;
