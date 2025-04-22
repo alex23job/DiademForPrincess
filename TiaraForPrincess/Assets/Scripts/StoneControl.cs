@@ -61,7 +61,7 @@ public class StoneControl : MonoBehaviour
                 transform.localPosition = connectPoint.transform.localPosition;
                 Vector3 rot = connectPoint.transform.localRotation.eulerAngles;
                 //rot.x = 90f;
-                //transform.localRotation = Quaternion.Euler(rot);
+                transform.localRotation = Quaternion.Euler(rot);
                 transform.gameObject.GetComponent<BoxCollider>().enabled = false;
                 //child.gameObject.SetActive(false);
                 connectPoint.SetActive(false);

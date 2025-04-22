@@ -18,7 +18,7 @@ public class TiaraMovement : MonoBehaviour
     {
         float hor = Input.GetAxis("Horizontal");
         Vector3 rot = transform.rotation.eulerAngles;
-        rot.z += hor * speedRot * Time.deltaTime;
+        rot.z += -hor * speedRot * Time.deltaTime;
         transform.rotation = Quaternion.Euler(rot);
     }
 

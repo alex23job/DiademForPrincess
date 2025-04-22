@@ -63,9 +63,10 @@ public class TailControl : MonoBehaviour
             delta = Vector3.zero;
             Transform child = transform.GetChild(0);
             LinkPointControl lpc = child.gameObject.GetComponent<LinkPointControl>();
-            print($"UP {lpc.ConnectionPoint.name}");
+            
             if (lpc.ConnectionPoint != null)
             {
+                print($"UP {lpc.ConnectionPoint.name}");
                 transform.parent = lpc.ConnectionPoint.transform.parent;
                 transform.localPosition = lpc.ConnectionPoint.transform.localPosition;
                 transform.localRotation = lpc.ConnectionPoint.transform.localRotation;

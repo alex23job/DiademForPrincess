@@ -1898,6 +1898,7 @@ MonoBehaviour:
   - {fileID: 1266580488527794217, guid: c60cf272213f28349b3aa7cee8018b50, type: 3}
   - {fileID: 5399481739523857137, guid: e923466b90c3abd4a938b149f1f252fc, type: 3}
   - {fileID: 6341130308810454944, guid: 4093aea0987e17f4491e2cb7b6a9b98a, type: 3}
+  - {fileID: 6597550409393562758, guid: 50b01478dca66734cae9975ba2dc04aa, type: 3}
   arrTailMat:
   - {fileID: 2100000, guid: 16ec15f317cbf74409a3f224d4c75d54, type: 2}
   - {fileID: 2100000, guid: 47af8d67c9fa1594189bc378cf485cc2, type: 2}
@@ -1918,6 +1919,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ee0a225b932e5c0469e1827dcfa3b1f9, type: 3}
   - {fileID: 21300000, guid: f3c62bd7bcd849145b1890dab4b2faa2, type: 3}
   - {fileID: 21300000, guid: a6ab319ed0411764aa51cdd58bd06ab0, type: 3}
+  - {fileID: 21300000, guid: dbb8505fd5f834c4bb55cdc9a5e3a147, type: 3}
 --- !u!4 &1468962354
 Transform:
   m_ObjectHideFlags: 0
