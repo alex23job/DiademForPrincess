@@ -36,6 +36,11 @@ public class TiaraSet : MonoBehaviour
         Transform[] childTransforms = new Transform[transform.childCount];
         int i;
         for (i = 0; i < transform.childCount; i++) childTransforms[i] = transform.GetChild(i);
+        List<TiaraElement> tmpTails = new List<TiaraElement>();
+        foreach(TiaraElement elem in tails)
+        {
+            tmpTails.Add(new TiaraElement(elem.ElementID, elem.LocalPosition, elem.LocalRotation));
+        }
     }
 
     public void DeconstructTiara()
@@ -101,6 +106,7 @@ public class TiaraData
 {
     private List<TiaraElement> elements = new List<TiaraElement>();
 
+    public int ElementsCount { get { return elements.Count; } }
     public TiaraData() { }
     public TiaraData(string csv)
     {

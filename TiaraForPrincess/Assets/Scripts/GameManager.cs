@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
 
 
         //Debug.Log("Game data loaded! Score=" + GameManager.Instance.currentPlayer.totalScore.ToString() + "  Gold=" + GameManager.Instance.currentPlayer.totalGold.ToString());
-        Debug.Log($"Game data loaded! Score={GameManager.Instance.currentPlayer.totalScore}  Win={GameManager.Instance.currentPlayer.countWin}   Battle={GameManager.Instance.currentPlayer.countBattle}");
+        Debug.Log($"Game data loaded! Score={GameManager.Instance.currentPlayer.totalScore}  InventoryCount={GameManager.Instance.currentPlayer.inventory.Count}   TiaraDataCount={GameManager.Instance.currentPlayer.tiaraData.ElementsCount}");
 
         if (mm_control != null)
         {
@@ -216,6 +216,7 @@ public class PlayerInfo
         //maxLevel = 0;
         //currentLevel = 0;
         inventory = new Inventory();
+        tiaraData = new TiaraData();
     }
 
     public static PlayerInfo FirstGame()
