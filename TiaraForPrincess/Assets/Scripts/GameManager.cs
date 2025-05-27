@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.currentPlayer.totalScore = data.score;
 
         GameManager.Instance.currentPlayer.inventory = new Inventory(data.csvInventory);
+        GameManager.Instance.currentPlayer.tiaraData = new TiaraData(data.csvTiaraData);
 
         //GameManager.Instance.currentPlayer.maxQwScore = data.qwMaxScore;
         //GameManager.Instance.currentPlayer.maxHexScore = data.hexMaxScore;
@@ -132,6 +133,7 @@ public class GameManager : MonoBehaviour
         data.countWin = GameManager.Instance.currentPlayer.countWin;
 
         data.csvInventory = GameManager.Instance.currentPlayer.inventory.ToCsvString();
+        data.csvTiaraData = GameManager.Instance.currentPlayer.tiaraData.ToCsvString();
 
         data.isHints = GameManager.Instance.currentPlayer.isHintView;
         data.isFone = GameManager.Instance.currentPlayer.isSoundFone;
@@ -165,6 +167,8 @@ public class PlayerInfo
 
     public Inventory inventory;
     public Inventory currentInventory;
+
+    public TiaraData tiaraData;
 
     public int countSecond = 0;
     public int countLine = 0;
@@ -285,6 +289,7 @@ public class SaveData
     //public int hexMaxScore;
     //public int prismMaxScore;
     public string csvInventory = "";
+    public string csvTiaraData = "";
 
     public bool isFone;
     public bool isEffects;

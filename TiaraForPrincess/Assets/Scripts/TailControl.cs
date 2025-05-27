@@ -63,6 +63,7 @@ public class TailControl : MonoBehaviour
             delta = Vector3.zero;
             Transform child = transform.GetChild(0);
             LinkPointControl lpc = child.gameObject.GetComponent<LinkPointControl>();
+            TiaraSet tiaraSet = null;
             
             if (lpc.ConnectionPoint != null)
             {
@@ -70,6 +71,13 @@ public class TailControl : MonoBehaviour
                 transform.parent = lpc.ConnectionPoint.transform.parent;
                 transform.localPosition = lpc.ConnectionPoint.transform.localPosition;
                 transform.localRotation = lpc.ConnectionPoint.transform.localRotation;
+
+                tiaraSet = lpc.ConnectionPoint.transform.parent.gameObject.GetComponent<TiaraSet>();
+                if (tiaraSet != null)
+                {
+                    print($"UP TiaraTailsCount = {tiaraSet.CountTails}");
+                    tiaraSet.AddTail(tailID, transform.localPosition, transform.localRotation);
+                }
                 transform.gameObject.GetComponent<BoxCollider>().enabled = false;
                 child.gameObject.SetActive(false);
                 lpc.ConnectionPoint.SetActive(false);
