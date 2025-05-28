@@ -27,13 +27,13 @@ public class InventPanelControl : MonoBehaviour
 
     public void OnUpClick()
     {
-        if (currentItemsPos + 6 < GameManager.Instance.currentPlayer.inventory.Count) currentItemsPos += 2;
+        if (currentItemsPos > 1) currentItemsPos -= 2;
         ViewInventory();
     }
 
     public void OnDownClick()
     {
-        if (currentItemsPos > 1) currentItemsPos -= 2;
+        if (currentItemsPos + 6 < GameManager.Instance.currentPlayer.inventory.Count) currentItemsPos += 2;
         ViewInventory();
     }
 
@@ -71,10 +71,17 @@ public class InventPanelControl : MonoBehaviour
             {
                 arrBtnItems[i].gameObject.SetActive(true);
                 ItemTail item = GameManager.Instance.currentPlayer.inventory.GetItem(currentItemsPos + i);
-                Text txtItem = arrBtnItems[i].transform.GetChild(0).gameObject.GetComponent<Text>();
-                Image img = arrBtnItems[i].transform.GetChild(1).gameObject.GetComponent<Image>();
-                img.sprite = item.ItemSprite;
-                txtItem.text = $"{item.ItemID} {item.Count}";
+                if (item != null)
+                {
+                    Text txtItem = arrBtnItems[i].transform.GetChild(0).gameObject.GetComponent<Text>();
+                    Image img = arrBtnItems[i].transform.GetChild(1).gameObject.GetComponent<Image>();
+                    img.sprite = item.ItemSprite;
+                    txtItem.text = $"{item.ItemID} {item.Count}";
+                }
+                else
+                {
+                    arrBtnItems[i].gameObject.SetActive(false);
+                }
             }
             else
             {
