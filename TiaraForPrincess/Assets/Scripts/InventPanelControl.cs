@@ -46,10 +46,13 @@ public class InventPanelControl : MonoBehaviour
         {
             tail = Instantiate(TailPrefabPak.Instance.GetStone(currentItemTail.ItemID));
             tail.AddComponent<StoneControl>();
+            tail.AddComponent<StoneInfo>();
+            tail.GetComponent<StoneInfo>().SetStoneID(currentItemTail.ItemID);
         }
         if (currentItemTail.ItemID >= 20)
         {
             tail = Instantiate(TailPrefabPak.Instance.GetTail(currentItemTail.ItemID - 20));
+            tail.GetComponent<TailControl>().SetID(currentItemTail.ItemID);
             for (int i = 0; i < tail.transform.childCount; i++)
             {
                 tail.transform.GetChild(i).gameObject.SetActive(true);

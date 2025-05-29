@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class TailControl : MonoBehaviour
 {
     private Vector3 startPos;
@@ -34,6 +36,10 @@ public class TailControl : MonoBehaviour
         }
     }
 
+    public void SetID(int id)
+    {
+        tailID = id;
+    }
     public void SetTailID(int id)
     {
         tailID = id;
@@ -76,7 +82,7 @@ public class TailControl : MonoBehaviour
                 if (tiaraSet != null)
                 {
                     print($"UP TiaraTailsCount = {tiaraSet.CountTails}");
-                    tiaraSet.AddTail(tailID, transform.localPosition, transform.localRotation);
+                    tiaraSet.AddTail(tailID, transform.localPosition, transform.localRotation, transform.parent.position);
                 }
                 transform.gameObject.GetComponent<BoxCollider>().enabled = false;
                 child.gameObject.SetActive(false);

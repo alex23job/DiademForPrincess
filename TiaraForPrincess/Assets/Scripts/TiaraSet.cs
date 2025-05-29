@@ -23,9 +23,9 @@ public class TiaraSet : MonoBehaviour
         
     }*/
 
-    public void AddTail(int id, Vector3 localPos, Quaternion localRot)
+    public void AddTail(int id, Vector3 localPos, Quaternion localRot, Vector3 parentPos)
     {
-        TiaraElement elem = new TiaraElement(id, localPos, localRot);
+        TiaraElement elem = new TiaraElement(id, localPos, localRot, parentPos);
         tails.Add(elem);
         GameManager.Instance.currentPlayer.tiaraData.CopyElementsData(tails);
         GameManager.Instance.SaveGame();
@@ -34,18 +34,56 @@ public class TiaraSet : MonoBehaviour
     private void BuildTiara()
     {
         Transform[] childTransforms = new Transform[transform.childCount];
-        int i;
+        int i, j;
         for (i = 0; i < transform.childCount; i++) childTransforms[i] = transform.GetChild(i);
         List<TiaraElement> tmpTails = new List<TiaraElement>();
         foreach(TiaraElement elem in tails)
         {
-            tmpTails.Add(new TiaraElement(elem.ElementID, elem.LocalPosition, elem.LocalRotation));
+            tmpTails.Add(new TiaraElement(elem.ElementID, elem.LocalPosition, elem.LocalRotation, elem.ParentPosition));
+        }
+        for (i = 0; i < childTransforms.Length; i++)
+        {
+            for (j = 0; j < tmpTails.Count; j++)
+            {
+                if ((tmpTails[j].ElementID >= 20) && (childTransforms[i].localPosition == tmpTails[j].LocalPosition))
+                {
+                    GameObject tail = Instantiate(TailPrefabPak.Instance.GetTail(tmpTails[j].ElementID - 20));
+                    tail.GetComponent<TailControl>().SetTailID(tmpTails[j].ElementID);
+                    tail.transform.parent = transform;
+                    tail.transform.localPosition = tmpTails[j].LocalPosition;
+                    tail.transform.localRotation = tmpTails[j].LocalRotation;
+                    tmpTails.RemoveAt(j);
+                    Transform[] stonePoints = new Transform[tail.transform.childCount - 1];
+                    if (stonePoints.Length > 0)
+                    {
+                        for (int k = 0; k < stonePoints.Length; k++)
+                        {
+                            stonePoints[k] = tail.transform.GetChild(k + 1);
+                            for (j = 0; j < tmpTails.Count; j++)
+                            {
+                                if ((tmpTails[j].ElementID < 20) && (stonePoints[k].localPosition == tmpTails[j].LocalPosition))
+                                {
+                                    GameObject stone = Instantiate(TailPrefabPak.Instance.GetStone(tmpTails[j].ElementID));
+                                    stone.transform.parent = tail.transform;
+                                    stone.transform.localPosition = tmpTails[j].LocalPosition;
+                                    stone.transform.localRotation = tmpTails[j].LocalRotation;
+                                    tmpTails.RemoveAt(j);
+                                    break;
+                                }
+                            }
+                        }
+                    }                    
+                    break;
+                }
+            }
         }
     }
 
     public void DeconstructTiara()
     {
-
+        tails.Clear();
+        GameManager.Instance.currentPlayer.tiaraData.CopyElementsData(tails);
+        GameManager.Instance.SaveGame();
     }
 
     /*public string ToCsvString(char sep = '#')
@@ -65,21 +103,24 @@ public class TiaraElement
     int ElemID = 0;
     Vector3 localPosition = Vector3.zero;
     Quaternion localRotation = Quaternion.identity;
+    Vector3 parentPosition = Vector3.zero;
 
     public int ElementID { get { return ElemID; } }
     public Vector3 LocalPosition {  get { return localPosition; } }
     public Quaternion LocalRotation { get { return localRotation; } }
+    public Vector3 ParentPosition {  get { return parentPosition; } }
     public TiaraElement() { }
-    public TiaraElement(int id, Vector3 localPos, Quaternion localRot)
+    public TiaraElement(int id, Vector3 localPos, Quaternion localRot, Vector3 parentPos)
     {
         ElemID = id;
         localPosition = localPos;
         localRotation = localRot;
+        parentPosition = parentPos;
     }
     public TiaraElement(string csvStr, char sep = '=')
     {
         string[] ar = csvStr.Split(sep);
-        if (ar.Length == 7)
+        if (ar.Length >= 10)
         {
             if (int.TryParse(ar[0], out int id))
             {
@@ -93,11 +134,15 @@ public class TiaraElement
             {
                 localRotation = Quaternion.Euler(new Vector3(ex, ey, ez));
             }
+            if (float.TryParse(ar[7], out float px) && float.TryParse(ar[8], out float py) && float.TryParse(ar[9], out float pz))
+            {
+                parentPosition = new Vector3(px, py, pz);
+            }
         }
     }
     public string GetCsvString(char sep = '=')
     {
-        return $"{ElemID}{sep}{localPosition.x}{sep}{localPosition.y}{sep}{localPosition.z}{sep}{localRotation.eulerAngles.x}{sep}{localRotation.eulerAngles.y}{sep}{localRotation.eulerAngles.z}{sep}";
+        return $"{ElemID}{sep}{localPosition.x}{sep}{localPosition.y}{sep}{localPosition.z}{sep}{localRotation.eulerAngles.x}{sep}{localRotation.eulerAngles.y}{sep}{localRotation.eulerAngles.z}{sep}{parentPosition.x}{sep}{parentPosition.y}{sep}{parentPosition.z}{sep}";
     }
 }
 
@@ -110,6 +155,7 @@ public class TiaraData
     public TiaraData() { }
     public TiaraData(string csv)
     {
+        //Debug.Log($"csvTiaraData => {csv}");
         string[] ar = csv.Split('#', options: System.StringSplitOptions.RemoveEmptyEntries);
         foreach (string s in ar)
         {
@@ -122,7 +168,7 @@ public class TiaraData
         elements.Clear();
         foreach(TiaraElement elem in tails)
         {
-            elements.Add(new TiaraElement(elem.ElementID, elem.LocalPosition, elem.LocalRotation));
+            elements.Add(new TiaraElement(elem.ElementID, elem.LocalPosition, elem.LocalRotation, elem.ParentPosition));
         }
     }
 
@@ -131,7 +177,7 @@ public class TiaraData
         List<TiaraElement> list = new List<TiaraElement>();
         foreach (TiaraElement elem in elements)
         {
-            list.Add(new TiaraElement(elem.ElementID, elem.LocalPosition, elem.LocalRotation));
+            list.Add(new TiaraElement(elem.ElementID, elem.LocalPosition, elem.LocalRotation, elem.ParentPosition));
         }
         return list;
     }

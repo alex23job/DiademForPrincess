@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
 
         GameManager.Instance.currentPlayer.inventory = new Inventory(data.csvInventory);
         GameManager.Instance.currentPlayer.tiaraData = new TiaraData(data.csvTiaraData);
+        //GameManager.Instance.currentPlayer.tiaraData = new TiaraData();
 
         //GameManager.Instance.currentPlayer.maxQwScore = data.qwMaxScore;
         //GameManager.Instance.currentPlayer.maxHexScore = data.hexMaxScore;

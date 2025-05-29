@@ -1,15 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class StoneControl : MonoBehaviour
 {
+    private int stoneID = -1;
     private Vector3 startPos;
     private bool isMove = false;
     private bool isChild = false;
     private Vector3 delta = Vector3.zero;
     private MeshRenderer mr = null;
     private GameObject connectPoint = null;
+
+    public int StoneID { get { return stoneID; } }
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +67,14 @@ public class StoneControl : MonoBehaviour
                 Vector3 rot = connectPoint.transform.localRotation.eulerAngles;
                 //rot.x = 90f;
                 transform.localRotation = Quaternion.Euler(rot);
+
+                TiaraSet tiaraSet = transform.parent.parent.gameObject.GetComponent<TiaraSet>();
+                if (tiaraSet != null)
+                {
+                    stoneID = transform.GetComponent<StoneInfo>().StoneID;
+                    print($"UP StoneID={stoneID} TiaraTailsCount = {tiaraSet.CountTails}");
+                    tiaraSet.AddTail(stoneID, transform.localPosition, transform.localRotation, transform.parent.position);
+                }
                 transform.gameObject.GetComponent<BoxCollider>().enabled = false;
                 //child.gameObject.SetActive(false);
                 connectPoint.SetActive(false);
