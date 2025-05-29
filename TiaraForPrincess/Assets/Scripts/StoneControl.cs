@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class StoneControl : MonoBehaviour
+public class StoneControl : MonoBehaviour, IIsChild
 {
     private int stoneID = -1;
     private Vector3 startPos;
@@ -14,6 +14,11 @@ public class StoneControl : MonoBehaviour
     private MeshRenderer mr = null;
     private GameObject connectPoint = null;
 
+    public bool IsChild
+    {
+        get { return isChild; }
+        set { isChild = value; }
+    }
     public int StoneID { get { return stoneID; } }
 
     // Start is called before the first frame update

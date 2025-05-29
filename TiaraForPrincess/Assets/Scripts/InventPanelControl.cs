@@ -12,6 +12,7 @@ public class InventPanelControl : MonoBehaviour
     private int currentItemsPos = 0;
     private int currentItemsNum = 0;
     private ItemTail currentItemTail = null;
+    private GameObject tail = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,9 +40,16 @@ public class InventPanelControl : MonoBehaviour
 
     public void OnBtnItemClick(int num)
     {
+        if (tail != null)
+        {
+            IIsChild isChild = tail.GetComponent<StoneControl>() as IIsChild;
+            if (isChild != null && isChild.IsChild == false) return;
+            isChild = tail.GetComponent<TailControl>() as IIsChild;
+            if (isChild != null && isChild.IsChild == false) return;
+        }
         currentItemsNum = currentItemsPos + num;
         currentItemTail = GameManager.Instance.currentPlayer.inventory.GetItem(currentItemsNum);
-        GameObject tail = null;
+        
         if (currentItemTail.ItemID < 20)
         {
             tail = Instantiate(TailPrefabPak.Instance.GetStone(currentItemTail.ItemID));

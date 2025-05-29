@@ -55,3 +55,8 @@ public class TailPrefabPak : MonoBehaviour
         return ((index >= 0 && index < arrTilesSprites.Length) ? arrTilesSprites[index] : arrTilesSprites[0]);
     }
 }
+
+public interface IIsChild
+{    
+    bool IsChild { get; set; }
+}

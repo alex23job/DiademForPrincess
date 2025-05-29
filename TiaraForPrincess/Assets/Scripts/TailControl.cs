@@ -4,13 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class TailControl : MonoBehaviour
+public class TailControl : MonoBehaviour, IIsChild
 {
     private Vector3 startPos;
     private bool isMove = false;
     private bool isChild = false;
     private Vector3 delta = Vector3.zero;
     private int tailID = -1;
+
+    public bool IsChild
+    {
+        get { return isChild; }
+        set { isChild = value; }
+    }
 
     public int TailID { get { return tailID; } }
 
