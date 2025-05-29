@@ -1352,9 +1352,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arTxtRecItems: []
-  riAvatar: {fileID: 0}
-  txtName: {fileID: 0}
-  txtScore: {fileID: 0}
+  riAvatar: {fileID: 510767731}
+  txtName: {fileID: 1551643987}
+  txtScore: {fileID: 646307428}
 --- !u!1 &980707421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrStones:
-  - {fileID: 7599249886909704976, guid: 724e6fc89d8eb1b4dad38e5031ed530e, type: 3}
+  - {fileID: 5035382102178269686, guid: 724e6fc89d8eb1b4dad38e5031ed530e, type: 3}
   - {fileID: 3334142331467752079, guid: 63310be980b222d4fb88224ba0a00385, type: 3}
   - {fileID: 1746763595963515729, guid: 73fff1c931998db49933c62c53671045, type: 3}
   - {fileID: 7338782728044539910, guid: b33da7ed060890c4d85248625b720e05, type: 3}
@@ -1900,6 +1900,7 @@ MonoBehaviour:
   - {fileID: 6341130308810454944, guid: 4093aea0987e17f4491e2cb7b6a9b98a, type: 3}
   - {fileID: 6597550409393562758, guid: 50b01478dca66734cae9975ba2dc04aa, type: 3}
   - {fileID: 6019080399511400109, guid: a6290b5b9cdf12f49b0741c74749b39f, type: 3}
+  - {fileID: 9080035784416901612, guid: b50e14f598c585343ade30d1002d67fb, type: 3}
   arrTailMat:
   - {fileID: 2100000, guid: 16ec15f317cbf74409a3f224d4c75d54, type: 2}
   - {fileID: 2100000, guid: 47af8d67c9fa1594189bc378cf485cc2, type: 2}
@@ -1922,6 +1923,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6ab319ed0411764aa51cdd58bd06ab0, type: 3}
   - {fileID: 21300000, guid: dbb8505fd5f834c4bb55cdc9a5e3a147, type: 3}
   - {fileID: 21300000, guid: 3b55430060404754e9f02f922196f788, type: 3}
+  - {fileID: 21300000, guid: 723b5f396ccd4e842bc37c2724950da3, type: 3}
 --- !u!4 &1468962354
 Transform:
   m_ObjectHideFlags: 0

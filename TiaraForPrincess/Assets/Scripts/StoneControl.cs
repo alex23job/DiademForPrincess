@@ -54,7 +54,7 @@ public class StoneControl : MonoBehaviour
             delta = Vector3.zero;
             //Transform child = transform.GetChild(0);
             //LinkPointControl lpc = child.gameObject.GetComponent<LinkPointControl>();
-            print($"UP {connectPoint.name}");
+            if (connectPoint != null) print($"UP {connectPoint.name}");
             if (connectPoint != null)
             {
                 transform.parent = connectPoint.transform.parent;
