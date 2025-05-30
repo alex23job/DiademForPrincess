@@ -58,7 +58,13 @@ public class Inventory
 
     public ItemTail GetItem(int index)
     {
-        return ((index >= 0 && index < items.Count) ? items[index] : null);
+        ItemTail item = ((index >= 0 && index < items.Count) ? items[index] : null);
+        /*if (item != null)
+        {
+            if (item.Count > 1) items[index].ChangeCount(-1);
+            else items.RemoveAt(index);
+        }*/
+        return item;
     }
 
     public void UpdateItems(Inventory current)

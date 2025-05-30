@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class TiaraSet : MonoBehaviour
 {
+    [SerializeField] private BoxMove boxMove;
+
     private List<TiaraElement> tails = new List<TiaraElement>();
 
     public int CountTails { get { return tails.Count; } }
@@ -81,9 +83,17 @@ public class TiaraSet : MonoBehaviour
 
     public void DeconstructTiara()
     {
+        boxMove.SetNapr(-1);
+        Invoke("BoxUp", 2f);
+        return;
         tails.Clear();
         GameManager.Instance.currentPlayer.tiaraData.CopyElementsData(tails);
         GameManager.Instance.SaveGame();
+    }
+
+    private void BoxUp()
+    {
+        boxMove.SetNapr(1);
     }
 
     /*public string ToCsvString(char sep = '#')

@@ -1924,6 +1924,42 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dbb8505fd5f834c4bb55cdc9a5e3a147, type: 3}
   - {fileID: 21300000, guid: 3b55430060404754e9f02f922196f788, type: 3}
   - {fileID: 21300000, guid: 723b5f396ccd4e842bc37c2724950da3, type: 3}
+  nameStonesRu:
+  - "\u0411\u0440\u0438\u043B\u0438\u0430\u043D\u0442"
+  - "\u0418\u0437\u0443\u043C\u0440\u0443\u0434"
+  - "\u0420\u0443\u0431\u0438\u043D"
+  - "\u0421\u0430\u043F\u0444\u0438\u0440"
+  - "\u0416\u0435\u043C\u0447\u0443\u0433"
+  - "\u041E\u0432.\u0431\u0440\u0438\u043B\u0438\u0430\u043D\u0442"
+  - "\u041E\u0432.\u0438\u0437\u0443\u043C\u0440\u0443\u0434"
+  - "\u041E\u0432.\u0440\u0443\u0431\u0438\u043D"
+  - "\u041E\u0432.\u0441\u0430\u043F\u0444\u0438\u0440"
+  - "\u042F\u043D\u0442\u0430\u0440\u044C"
+  nameStonesEn:
+  - Briliant
+  - Izumrud
+  - Rubin
+  - Sapphire
+  - Pearl
+  - Oval Briliant
+  - Oval Izumrud
+  - Oval Rubin
+  - Oval Sapphire
+  - Amber
+  nameTailesRu:
+  - "\u041A\u043E\u043B\u044C\u0446\u043E"
+  - "\u041E\u0432\u0430\u043B"
+  - "3 \u043A\u043E\u043B\u044C\u0446\u0430"
+  - "\u0427\u0430\u0448\u0430"
+  - "\u041E\u0432\u0430\u043B \u0441 2 \u043A\u043E\u043B\u044C\u0446\u0430\u043C\u0438"
+  - "\u041E\u0432\u0430\u043B \u0441 3 \u043A\u043E\u043B\u044C\u0446\u0430\u043C\u0438"
+  nameTailesEn:
+  - Ring
+  - Oval
+  - 3 rings
+  - Cup
+  - Oval with 2 rings
+  - Oval with 3 rings
 --- !u!4 &1468962354
 Transform:
   m_ObjectHideFlags: 0
