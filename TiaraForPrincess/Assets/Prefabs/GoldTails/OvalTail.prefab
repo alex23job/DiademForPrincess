@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 8668776599830775532}
   m_Layer: 0
   m_Name: OvalTail
-  m_TagString: Untagged
+  m_TagString: bonus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
