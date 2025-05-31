@@ -9,6 +9,7 @@ public class TiaraSet : MonoBehaviour
     [SerializeField] private BoxMove boxMove;
 
     private List<TiaraElement> tails = new List<TiaraElement>();
+    private int linkPointCoint = 0;
 
     public int CountTails { get { return tails.Count; } }
 
@@ -35,6 +36,7 @@ public class TiaraSet : MonoBehaviour
 
     private void BuildTiara()
     {
+        linkPointCoint = transform.childCount;
         Transform[] childTransforms = new Transform[transform.childCount];
         int i, j;
         for (i = 0; i < transform.childCount; i++) childTransforms[i] = transform.GetChild(i);
@@ -84,7 +86,37 @@ public class TiaraSet : MonoBehaviour
     public void DeconstructTiara()
     {
         boxMove.SetNapr(-1);
-        Invoke("BoxUp", 2f);
+        Invoke("BoxUp", 10f);
+        Vector3 point = boxMove.EndPos;
+        point.y += 2f;
+        float countDelay = 0;
+        for(int i = transform.childCount - 1; i > linkPointCoint - 1; i--)
+        {
+            Transform childTail = transform.GetChild(i);
+            for(int j = childTail.childCount - 1; j >= 0; j--)
+            {
+                Transform childStone = childTail.GetChild(j);
+                if (childStone != null)
+                {
+                    if (childStone.name.Contains("Point"))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        childStone.parent = null;
+                        childStone.gameObject.AddComponent<TailMoveBox>();
+                        childStone.gameObject.AddComponent<StoneInfo>();
+                        countDelay += 0.2f;
+                        childStone.gameObject.GetComponent<TailMoveBox>().Destruct(point, countDelay, 2f);
+                    }
+                }
+            }
+            childTail.parent = null;
+            childTail.gameObject.AddComponent<TailMoveBox>();
+            countDelay += 0.5f;
+            childTail.gameObject.GetComponent<TailMoveBox>().Destruct(point, countDelay, 2f);
+        }
         return;
         tails.Clear();
         GameManager.Instance.currentPlayer.tiaraData.CopyElementsData(tails);

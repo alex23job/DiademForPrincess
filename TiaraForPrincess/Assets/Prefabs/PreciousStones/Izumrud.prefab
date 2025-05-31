@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8946872267021335540}
   - component: {fileID: 1936235468285953064}
   - component: {fileID: 7587946479048232408}
-  - component: {fileID: 6337840822660957556}
+  - component: {fileID: 1538382128129907995}
   m_Layer: 0
   m_Name: Izumrud
   m_TagString: stone
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6337840822660957556
+--- !u!65 &1538382128129907995
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,5 +103,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.008, y: 0.008, z: 0.0041244817}
+  m_Size: {x: 0.008, y: 0.0041244817, z: 0.008}
   m_Center: {x: 0, y: 0, z: 0}

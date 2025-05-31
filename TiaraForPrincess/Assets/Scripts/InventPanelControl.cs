@@ -86,9 +86,11 @@ public class InventPanelControl : MonoBehaviour
                 {
                     Text txtItem = arrBtnItems[i].transform.GetChild(0).gameObject.GetComponent<Text>();
                     Image img = arrBtnItems[i].transform.GetChild(1).gameObject.GetComponent<Image>();
+                    Text txtCount = arrBtnItems[i].transform.GetChild(2).gameObject.GetComponent<Text>();
                     img.sprite = item.ItemSprite;
                     string nameItem = (item.ItemID < 20) ? TailPrefabPak.Instance.GetNameStone(item.ItemID) : TailPrefabPak.Instance.GetNameTail(item.ItemID - 20);
-                    txtItem.text = $"{nameItem} {item.Count}";
+                    txtItem.text = $"{nameItem}";
+                    txtCount.text = $"{item.Count}";
                 }
                 else
                 {

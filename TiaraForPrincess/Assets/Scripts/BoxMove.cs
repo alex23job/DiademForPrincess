@@ -10,12 +10,14 @@ public class BoxMove : MonoBehaviour
     private int moveDirection = 0;
     private Vector3 startPos, endPos;
 
+    public Vector3 EndPos { get { return endPos; } }
+
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
         endPos = startPos;
-        endPos.y -= 3f;
+        endPos.y -= 4f;
     }
 
     // Update is called once per frame
